@@ -1,9 +1,9 @@
-package com.antsoft.service;
+package com.fei.springboot.service;
 
-import com.antsoft.aop.ReadOnlyConnection;
-import com.antsoft.mapper.UserMapper;
-import com.antsoft.model.User;
-import com.github.pagehelper.PageHelper;
+import com.fei.springboot.annotation.ReadDataSource;
+import com.fei.springboot.annotation.WriteDataSource;
+import com.fei.springboot.dao.UserMapper;
+import com.fei.springboot.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @ReadOnlyConnection
+    @ReadDataSource
     public List<User> query(){
         return userMapper.query();
     }
-
+    @WriteDataSource
     public int update(User user){
         return userMapper.update(user);
     }

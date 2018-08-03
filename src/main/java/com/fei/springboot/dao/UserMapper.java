@@ -1,6 +1,6 @@
-package com.antsoft.mapper;
+package com.fei.springboot.dao;
 
-import com.antsoft.model.User;
+import com.fei.springboot.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

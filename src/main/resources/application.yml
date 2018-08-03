@@ -1,3 +1,9 @@
+logging:
+  config: classpath:logback.xml
+  path: d:/logs
+server:
+  port: 80
+  session-timeout: 60
 
 
 druid:
@@ -21,10 +27,73 @@ druid:
 
 
 mybatis:
-    type-aliases-package: com.antsoft.model #实体类的包
+    type-aliases-package: com.antsoft.model,com.fei.springboot.domain #实体类的包
     mapper-locations: classpath:mapper/*.xml #Mapper的xml文件
+    configLocation: classpath:/mybatis-config.xml
 
-
+mysql:
+    datasource:
+        readSize: 2  #读库个数
+        type: com.alibaba.druid.pool.DruidDataSource
+        mapperLocations: classpath:mapper/*.xml
+        configLocation: classpath:/mybatis-config.xml
+        write:
+           url: jdbc:mysql://127.0.0.1:3306/world?useUnicode=true&characterEncoding=utf-8
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read01:
+           url: jdbc:mysql://127.0.0.1:3307/world?useUnicode=true&characterEncoding=utf-8
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read02:
+           url: jdbc:mysql://127.0.0.1:3307/world?useUnicode=true&characterEncoding=utf-8
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
 #mapper:
 #    mappers:
 #        - com.antsoft.database.BaseMapper
