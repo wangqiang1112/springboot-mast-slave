@@ -34,8 +34,8 @@ public class UserController {
         User user = new User();
         user.setId(1);
         user.setAge(30);
-        user.setUsername("xym111");
-        user.setPassword("xym111");
+        user.setUsername("xym222");
+        user.setPassword("xym222");
         int num = userService.update(user);
         return num;
     }
