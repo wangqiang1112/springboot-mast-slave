@@ -6,6 +6,7 @@ import com.fei.springboot.myConfig.MyProps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/config")
@@ -15,6 +16,7 @@ public class confController {
     private MyProps myProps;
 
     @RequestMapping(value = "/deplay")
+    @ResponseBody
     public void deplay() throws Exception{
         ObjectMapper objectMapper = new ObjectMapper();
         System.out.println("simpleProp: " + myProps.getSimpleProp());
